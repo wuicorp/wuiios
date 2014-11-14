@@ -3,11 +3,22 @@ GEM
   specs:
     ProMotion (2.0.1)
       methadone (~> 1.4)
+    ProMotion-formotion (0.1.6)
+      ProMotion (>= 1.2.0)
+      formotion (>= 1.7)
+      motion-require (>= 0.2.0)
+    bubble-wrap (1.7.1)
+      bubble-wrap-http (= 1.7.1)
+    bubble-wrap-http (1.7.1)
     dbt (1.1.5)
+    formotion (1.8)
+      bubble-wrap (>= 1.4.0)
+      motion-require (>= 0.1.0)
     methadone (1.8.0)
       bundler
     motion-kit (0.15.0)
       dbt (~> 1.1.5)
+    motion-require (0.2.0)
     rake (10.3.2)
     sugarcube (2.11.1)
 
@@ -16,6 +27,8 @@ PLATFORMS
 
 DEPENDENCIES
   ProMotion (~> 2.0)
+  ProMotion-formotion
+  formotion
   motion-kit (~> 0.10)
   rake
   sugarcube

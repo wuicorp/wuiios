@@ -4,6 +4,8 @@ gem 'rake'
 
 # ProMotion
 gem 'ProMotion', '~> 2.0'
+gem 'formotion'
+gem 'ProMotion-formotion'
 # gem "ProMotion-push", "~> 0.2" # Push Notifications
 # gem "ProMotion-map", "~> 0.3"  # PM::MapScreen
 
