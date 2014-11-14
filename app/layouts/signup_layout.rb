@@ -1,6 +1,6 @@
 class SignupLayout < MK::Layout
   view :legacy_button, :fb_button,
-       :username_field, :password_field, :password_confirmation_field
+       :email_field, :password_field, :password_confirmation_field
 
   def layout
     root :signup do
@@ -53,12 +53,14 @@ class SignupLayout < MK::Layout
 
   def password_field_style
     placeholder 'Password'
+    secure_text_entry true
     style_for_text_field
     frame [[20, 150], ['100% - 40', 40]]
   end
 
   def password_confirmation_field_style
     placeholder 'Password confirmation'
+    secure_text_entry true
     style_for_text_field
     frame [[20, 200], ['100% - 40', 40]]
   end

@@ -15,6 +15,10 @@ gem 'sugarcube', require: ['sugarcube-common', 'sugarcube-uikit']
 # Layout and styling gem
 gem 'motion-kit', '~> 0.10'
 
+gem 'oauth2-motion', path: '~/devel/oauth2-motion'
+
+gem 'motion_model'
+
 # Front end toolkit
 # gem "ruby_motion_query", "~> 0.6"
 

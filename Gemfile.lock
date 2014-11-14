@@ -1,3 +1,9 @@
+PATH
+  remote: ~/devel/oauth2-motion
+  specs:
+    oauth2-motion (0.0.0)
+      bubble-wrap-http
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -19,6 +25,11 @@ GEM
     motion-kit (0.15.0)
       dbt (~> 1.1.5)
     motion-require (0.2.0)
+    motion-support (0.2.6)
+      motion-require (>= 0.0.6)
+    motion_model (0.6.0)
+      bubble-wrap (>= 1.3.0)
+      motion-support (>= 0.1.0)
     rake (10.3.2)
     sugarcube (2.11.1)
 
@@ -30,5 +41,7 @@ DEPENDENCIES
   ProMotion-formotion
   formotion
   motion-kit (~> 0.10)
+  motion_model
+  oauth2-motion!
   rake
   sugarcube
