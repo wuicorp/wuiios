@@ -17,7 +17,8 @@ class SignupScreen < PM::Screen
 
   def legacy_signup
     api.post(legacy_path, params) do |response|
-      puts response.status_code.to_s
+      CurrentUser.create_from_response(response.body)
+      User.serialize_to_file('current_user')
     end
   end
 
