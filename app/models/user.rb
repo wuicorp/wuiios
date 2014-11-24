@@ -11,9 +11,4 @@ class User
   def new?
     external_id.nil?
   end
-
-  def from_provider(response)
-    self.access_token = response['access_token']
-    self.external_id = response['user']['id']
-  end
 end
