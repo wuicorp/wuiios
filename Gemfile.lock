@@ -1,3 +1,12 @@
+GIT
+  remote: git@github.com:aviscasillas/MotionModel.git
+  revision: 20b82cb5e552ca553810844d0e76ab34553df0a8
+  branch: validate-with-conditions
+  specs:
+    motion_model (0.6.0)
+      bubble-wrap (>= 1.3.0)
+      motion-support (>= 0.1.0)
+
 PATH
   remote: ~/devel/oauth2-motion
   specs:
@@ -27,9 +36,6 @@ GEM
     motion-require (0.2.0)
     motion-support (0.2.6)
       motion-require (>= 0.0.6)
-    motion_model (0.6.0)
-      bubble-wrap (>= 1.3.0)
-      motion-support (>= 0.1.0)
     rake (10.3.2)
     sugarcube (2.11.1)
 
@@ -41,7 +47,7 @@ DEPENDENCIES
   ProMotion-formotion
   formotion
   motion-kit (~> 0.10)
-  motion_model
+  motion_model!
   oauth2-motion!
   rake
   sugarcube
