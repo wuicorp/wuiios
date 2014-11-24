@@ -16,9 +16,16 @@ class SignupScreen < PM::Screen
   end
 
   def legacy_signup
-    api.post(legacy_path, params) do |response|
-      CurrentUser.create_from_response(response.body)
-      User.serialize_to_file('current_user')
+    user = User.new(email: @email_field.text,
+                    password: @password_field.text,
+                    password_confirmation: @password_confirmation_field.text)
+    if user.save
+      api.post(legacy_path, params) do |response|
+        user.from_provider(response)
+        User.serialize_to_file('user')
+      end
+    else
+      ValidationAlertView.alert(user.error_messages)
     end
   end
 

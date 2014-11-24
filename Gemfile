@@ -17,7 +17,7 @@ gem 'motion-kit', '~> 0.10'
 
 gem 'oauth2-motion', path: '~/devel/oauth2-motion'
 
-gem 'motion_model'
+gem 'motion_model', git: 'git@github.com:aviscasillas/MotionModel.git', branch: 'validate-with-conditions'
 
 # Front end toolkit
 # gem "ruby_motion_query", "~> 0.6"

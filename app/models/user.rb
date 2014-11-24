@@ -1,14 +1,19 @@
-class CurrentUser
+class User
   include MotionModel::Model
   include MotionModel::ArrayModelAdapter
+  include MotionModel::Validatable
 
-  columns :access_token, :id, :email
+  columns :access_token, :external_id, :email, :password, :password_confirmation
 
-  def self.create_from_response(body)
-    response = BW::JSON.parse(body.to_str)
+  validate :email, presence: true, email: true
+  validate :password, presence: true, confirmation: true, if: :new?
 
-    create(access_token: response['access_token'],
-           id: response['user']['id'],
-           email: response['user']['email'])
+  def new?
+    external_id.nil?
+  end
+
+  def from_provider(response)
+    self.access_token = response['access_token']
+    self.external_id = response['user']['id']
   end
 end
