@@ -16,37 +16,19 @@ class SignupScreen < PM::Screen
   end
 
   def legacy_signup
-    user = User.new(email: @email_field.text,
-                    password: @password_field.text,
-                    password_confirmation: @password_confirmation_field.text)
-    if user.save
-      api.post(legacy_path, params) do |response|
-        user.from_provider(response)
-        User.serialize_to_file('user')
+    attributes = {
+      email: @email_field.text,
+      password: @password_field.text,
+      password_confirmation: @password_confirmation_field.text
+    }
+
+    UserService.create(attributes) do |user|
+      if user.error_messages
+        ValidationAlertView.alert(user.error_messages)
+      else
+        p 'go home!!'
       end
-    else
-      ValidationAlertView.alert(user.error_messages)
     end
-  end
-
-  def api
-    @api ||= OAuth2Motion::Client.new(
-      client_id: '4f21e899f10c3084cbc295a3d4f49633419f3ef1e8e161c1436340980451049e',
-      client_secret: 'abf8dec00e1d5ff029ad4f01c6aec0faf0a01844f6c9d42e41e814a6c16348ea',
-      site: 'http://localhost:3000'
-    )
-  end
-
-  def legacy_path
-    '/api/v1/sign_up'
-  end
-
-  def params
-    { user: {
-        email: @email_field.text,
-        password: @password_field.text,
-        password_confirmation: @password_confirmation_field.text
-    }}
   end
 
   def facebook_signup
