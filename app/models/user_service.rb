@@ -10,7 +10,8 @@ class UserService
 
       api.post('/api/v1/sign_up', to_provider(user)) do |response|
         if response.ok?
-          from_provider!(user, response)
+          params = BW::JSON.parse(response.body.to_str)
+          from_provider!(user, params)
           User.serialize_to_file('user') if user.save
           block.call(user)
         else
@@ -21,10 +22,10 @@ class UserService
       end
     end
 
-    def from_provider!(user, response)
+    def from_provider!(user, params)
       user.tap do |u|
-        u.access_token = response['access_token']
-        u.external_id = response['user']['id']
+        u.access_token = params['access_token']
+        u.external_id = params['user']['id']
       end
     end
 

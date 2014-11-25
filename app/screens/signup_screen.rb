@@ -23,10 +23,10 @@ class SignupScreen < PM::Screen
     }
 
     UserService.create(attributes) do |user|
-      if user.error_messages
-        ValidationAlertView.alert(user.error_messages)
+      if user.error_messages.empty?
+        open HomeScreen
       else
-        p 'go home!!'
+        ValidationAlertView.alert(user.error_messages)
       end
     end
   end
