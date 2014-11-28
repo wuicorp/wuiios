@@ -33,3 +33,5 @@ gem 'motion_model', git: 'git@github.com:aviscasillas/MotionModel.git', branch: 
 
 # Awesome Print
 # gem "awesome_print_motion", "~> 0.1"
+
+gem 'motion-env'

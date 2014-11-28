@@ -1,6 +1,6 @@
 class UserService
   class << self
-    def self.create(attributes, &block)
+    def create(attributes, &block)
       user = User.new(attributes)
 
       unless user.valid?
@@ -55,15 +55,15 @@ class UserService
     end
 
     def client_id
-      '4f21e899f10c3084cbc295a3d4f49633419f3ef1e8e161c1436340980451049e'
+      WuiApi.config.client_id
     end
 
     def client_secret
-      'abf8dec00e1d5ff029ad4f01c6aec0faf0a01844f6c9d42e41e814a6c16348ea'
+      WuiApi.config.client_secret
     end
 
     def site
-      'http://localhost:3000'
+      WuiApi.config.site
     end
   end
 end
