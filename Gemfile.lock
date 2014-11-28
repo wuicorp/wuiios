@@ -31,6 +31,7 @@ GEM
       motion-require (>= 0.1.0)
     methadone (1.8.0)
       bundler
+    motion-env (0.0.4)
     motion-kit (0.15.0)
       dbt (~> 1.1.5)
     motion-require (0.2.0)
@@ -46,6 +47,7 @@ DEPENDENCIES
   ProMotion (~> 2.0)
   ProMotion-formotion
   formotion
+  motion-env
   motion-kit (~> 0.10)
   motion_model!
   oauth2-motion!
