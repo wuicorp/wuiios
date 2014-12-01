@@ -7,19 +7,12 @@ class SignupScreen < PM::Screen
     @legacy_button = @layout.legacy_button
     @legacy_button.on(:touch) { legacy_signup }
 
-    @fb_button = @layout.fb_button
-    @fb_button.on(:touch) { facebook_signup }
-
-    @email_field = @layout.email_field
-    @password_field = @layout.password_field
-    @password_confirmation_field = @layout.password_confirmation_field
+    @phone_number_field = @layout.phone_number_field
   end
 
   def legacy_signup
     attributes = {
-      email: @email_field.text,
-      password: @password_field.text,
-      password_confirmation: @password_confirmation_field.text
+      phone_number: @phone_number_field.text
     }
 
     UserService.create(attributes) do |user|
@@ -29,9 +22,5 @@ class SignupScreen < PM::Screen
         ValidationAlertView.alert(user.error_messages)
       end
     end
-  end
-
-  def facebook_signup
-    puts 'Sign up with Facebook'
   end
 end

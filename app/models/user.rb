@@ -3,12 +3,7 @@ class User
   include MotionModel::ArrayModelAdapter
   include MotionModel::Validatable
 
-  columns :access_token, :external_id, :email, :password, :password_confirmation
+  columns :access_token, :external_id, :phone_number
 
-  validate :email, presence: true, email: true
-  validate :password, presence: true, confirmation: true, if: :new?
-
-  def new?
-    external_id.nil?
-  end
+  validate :phone_number, presence: true
 end

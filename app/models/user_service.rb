@@ -30,13 +30,7 @@ class UserService
     end
 
     def to_provider(user)
-      {
-        user: {
-          email: user.email,
-          password: user.password,
-          password_confirmation: user.password_confirmation
-        }
-      }
+      { user: { phone_number: user.phone_number } }
     end
 
     def errors_from_provider!(user, response)
