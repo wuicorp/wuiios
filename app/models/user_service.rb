@@ -30,7 +30,9 @@ class UserService
     end
 
     def to_provider(user)
-      { user: { phone_number: user.phone_number } }
+      { user:
+        { phone_number: user.phone_number, phone_prefix: user.phone_prefix }
+      }
     end
 
     def errors_from_provider!(user, response)

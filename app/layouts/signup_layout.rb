@@ -1,11 +1,13 @@
 class SignupLayout < MK::Layout
-  view :legacy_button, :phone_number_field
+  view :legacy_button, :phone_prefix_field, :phone_number_field
 
   def layout
     root :signup do
       add UIImageView, :logo
 
       add UIView, :register_view do
+        add UILabel, :prefix_label
+        @phone_prefix_field = add UITextField, :phone_prefix_field
         @phone_number_field = add UITextField, :phone_number_field
         @legacy_button = add UIButton, :legacy_button
       end
@@ -25,10 +27,23 @@ class SignupLayout < MK::Layout
     frame from_center(down: 100, size: ['100%', 400])
   end
 
+  def prefix_label_style
+    text '+'
+    text_color '#000000'.uicolor
+    frame [[20, 150], [30, 40]]
+  end
+
+  def phone_prefix_field_style
+    placeholder '34'
+
+    style_for_text_field
+    frame [[40, 150], [40, 40]]
+  end
+
   def phone_number_field_style
     placeholder 'Your phone number here'
     style_for_text_field
-    frame [[20, 150], ['100% - 40', 40]]
+    frame [[80, 150], [200, 40]]
   end
 
   def legacy_button_style

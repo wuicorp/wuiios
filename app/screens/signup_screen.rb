@@ -8,10 +8,12 @@ class SignupScreen < PM::Screen
     @legacy_button.on(:touch) { legacy_signup }
 
     @phone_number_field = @layout.phone_number_field
+    @phone_prefix_field = @layout.phone_prefix_field
   end
 
   def legacy_signup
     attributes = {
+      phone_prefix: @phone_prefix_field.text,
       phone_number: @phone_number_field.text
     }
 
