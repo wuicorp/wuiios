@@ -1,4 +1,4 @@
 wui_api:
   site: http://localhost:3000
-  client_id: 4f21e899f10c3084cbc295a3d4f49633419f3ef1e8e161c1436340980451049e
-  client_secret: abf8dec00e1d5ff029ad4f01c6aec0faf0a01844f6c9d42e41e814a6c16348ea
+  client_id: e4791b990409eb243fee385bf0a9dce047b85080d8fd1fbf5c840e41091a62c9
+  client_secret: c04ef3bba779078a09bbf9032bf7609f0818f8d65b3ee5d96fd02bb03050b072

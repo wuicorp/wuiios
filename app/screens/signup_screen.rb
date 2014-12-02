@@ -7,19 +7,22 @@ class SignupScreen < PM::Screen
     @legacy_button = @layout.legacy_button
     @legacy_button.on(:touch) { legacy_signup }
 
-    @fb_button = @layout.fb_button
-    @fb_button.on(:touch) { facebook_signup }
+    @phone_prefix_field = @layout.phone_prefix_field
+    @phone_number_field = @layout.phone_number_field
 
-    @email_field = @layout.email_field
-    @password_field = @layout.password_field
-    @password_confirmation_field = @layout.password_confirmation_field
+    @phone_prefix_field.on(:change) do |field|
+      limit_text_field(field, 3)
+    end
+
+    @phone_number_field.on(:change) do |field|
+      limit_text_field(field, 9)
+    end
   end
 
   def legacy_signup
     attributes = {
-      email: @email_field.text,
-      password: @password_field.text,
-      password_confirmation: @password_confirmation_field.text
+      phone_prefix: @phone_prefix_field.text,
+      phone_number: @phone_number_field.text
     }
 
     UserService.create(attributes) do |user|
@@ -31,7 +34,9 @@ class SignupScreen < PM::Screen
     end
   end
 
-  def facebook_signup
-    puts 'Sign up with Facebook'
+  def limit_text_field(field, maxchars)
+    text = field.text
+    return unless text.length > maxchars
+    field.text = text.chop
   end
 end
