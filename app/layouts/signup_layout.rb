@@ -35,14 +35,15 @@ class SignupLayout < MK::Layout
 
   def phone_prefix_field_style
     placeholder '34'
-
     style_for_text_field
+    keyboardType UIKeyboardTypeNumberPad
     frame [[40, 150], [40, 40]]
   end
 
   def phone_number_field_style
     placeholder 'Your phone number here'
     style_for_text_field
+    keyboardType UIKeyboardTypeNumberPad
     frame [[80, 150], [200, 40]]
   end
 
