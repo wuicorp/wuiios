@@ -25,11 +25,11 @@ gem 'motion_model', git: 'git@github.com:aviscasillas/MotionModel.git', branch: 
 # CoreData
 # gem "cdq", "~> 0.1"
 
-# Networking
-# gem "afmotion", "~> 2.1"
-
 # Screenshot acceptance comparison tool
 # gem "motion-juxtapose", "~> 0.1"
+
+# Networking
+# gem "afmotion", "~> 2.1"
 
 # Awesome Print
 # gem "awesome_print_motion", "~> 0.1"
